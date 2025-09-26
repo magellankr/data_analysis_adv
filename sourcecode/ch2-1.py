@@ -1,7 +1,9 @@
+
+# %%
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('datasets/Uber/Uber.csv')
+df = pd.read_csv('../datasets/Uber/Uber.csv')
 df.head()
 
 # info
@@ -58,3 +60,4 @@ fig, ax = plt.subplots()
 sns.regplot(x='MILES*', y='DURATION*', data=df, ax=ax,
             line_kws={'label':'y={:.2f}x+{:.2f}, R^2={:.2f}'.format(s, i, r**2)})
 plt.legend()
+# %%

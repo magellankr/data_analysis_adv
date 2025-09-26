@@ -1,4 +1,14 @@
-df = pd.read_csv('./datasets/product_inspection/product_inspection.csv')
+# %%
+import plotly.express as px
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+import matplotlib as mpl
+
+pio.renderers.default = 'notebook' # 또는 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
+df = pd.read_csv('../datasets/product_inspection/product_inspection.csv')
 df['date'] = pd.to_datetime(df['date'])
 
 g = sns.FacetGrid(df, sharex=False, sharey=False, col='inspection_step', aspect=1.6)
@@ -57,7 +67,7 @@ def custom(value, lower_spec, target, upper_spec, **kws):
 g.map(custom, 'value', 'lower_spec', 'target', 'upper_spec')
 
 # Plotly에서의 활용
-df = pd.read_csv('./datasets/product_inspection/product_inspection.csv')
+df = pd.read_csv('../datasets/product_inspection/product_inspection.csv')
 df['date'] = pd.to_datetime(df['date'])
 
 fig = px.scatter(df, x='date', y='value', facet_col='inspection_step')
@@ -118,3 +128,4 @@ for idx in range(df['inspection_step'].nunique()):
 fig.update_yaxes(matches=None)
 fig.update_yaxes(showticklabels=True)
 fig.show()
+# %%

@@ -1,9 +1,11 @@
+# %%
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-df = pd.read_csv('./datasets/global_internet_users/global_internet_users.csv')
+df = pd.read_csv('../datasets/global_internet_users/global_internet_users.csv')
 
+print(df.head())
 # entity 변수 고유값 출력
 df.Entity.unique()
 
@@ -16,6 +18,7 @@ fig, ax = plt.subplots()
 sns.scatterplot(
     x='Year', y='No. of Internet Users', data=df, ax=ax, hue='Entity', palette='bright'
 )
+plt.show()
 
 # seaborn scatterplot hue_order
 fig, ax = plt.subplots()
@@ -23,6 +26,7 @@ sns.scatterplot(
     x='Year', y='No. of Internet Users', data=df, ax=ax,
     hue='Entity', hue_order=['India', 'Finland', 'China']
 )
+plt.show()
 
 # seaborn scatterplot style
 fig, ax = plt.subplots()
@@ -30,6 +34,7 @@ sns.scatterplot(
     x='Year', y='No. of Internet Users', data=df, ax=ax,
     style='Entity', markers=['o','^','X'], s=100
 )
+plt.show()
 
 # seaborn scatterplot size
 fig, ax = plt.subplots()
@@ -37,6 +42,7 @@ sns.scatterplot(
     x='Year', y='No. of Internet Users', data=df, ax=ax,
     size='Entity', sizes=(40, 200)
 )
+plt.show()
 
 # tips 데이터셋을 이용한 Seaborn scatterplot
 df = sns.load_dataset('tips')
@@ -45,12 +51,13 @@ sns.scatterplot(
     x='total_bill', y='tip', data=df, ax=ax,
     hue='smoker', style='time', size='size'
 )
+plt.show()
 
 # plotly scatterplot
 import plotly.express as px
 import pandas as pd
 
-df = pd.read_csv('./datasets/global_internet_users/global_internet_users.csv')
+df = pd.read_csv('../datasets/global_internet_users/global_internet_users.csv')
 
 fig = px.scatter(
     data_frame=df, x='Year', y='No. of Internet Users',
@@ -108,3 +115,4 @@ fig = px.scatter(
     width=600, height=400,
 )
 fig.show()
+# %%

@@ -1,5 +1,15 @@
+# %%
+import plotly.express as px
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+import matplotlib as mpl
+
+pio.renderers.default = 'notebook' # 또는 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
 # Matplotlib로 2개의 축을 가지는 그래프 생성
-df = pd.read_csv('./datasets/ABNB_stock/ABNB_stock.csv')
+df = pd.read_csv('../datasets/ABNB_stock/ABNB_stock.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 
 fig, ax = plt.subplots()
@@ -20,7 +30,7 @@ ax.yaxis.label.set_color('red')
 ax2.yaxis.label.set_color('blue')
 
 # ABNB_stock 데이터셋에 파생 변수 생성
-df = pd.read_csv('./datasets/ABNB_stock/ABNB_stock.csv')
+df = pd.read_csv('../datasets/ABNB_stock/ABNB_stock.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 df['High-Low'] = df['High'] - df['Low']
 
@@ -52,7 +62,7 @@ ax.xaxis.set_major_formatter(mpl.dates.ConciseDateFormatter(ax.xaxis.get_major_l
 
 # Plotly를 이용한 2중 축 그래프 그리기
 from plotly.subplots import make_subplots
-df = pd.read_csv('./datasets/ABNB_stock/ABNB_stock.csv')
+df = pd.read_csv('../datasets/ABNB_stock/ABNB_stock.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 df['High-Low'] = df['High'] - df['Low']
 
@@ -79,7 +89,7 @@ fig.show()
 # Plotly를 이용한 3중 축 그래프 그리기
 import plotly.graph_objects as go
 
-df = pd.read_csv('./datasets/ABNB_stock/ABNB_stock.csv')
+df = pd.read_csv('../datasets/ABNB_stock/ABNB_stock.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 df['High-Low'] = df['High'] - df['Low']
 
@@ -124,3 +134,4 @@ fig.layout.yaxis2.color = 'blue'
 fig.layout.yaxis3.color = 'green'
 
 fig.show()
+# %%

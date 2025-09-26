@@ -1,6 +1,8 @@
+import pandas as pd
+import streamlit as st
 # text input
 string = st.text_input(
-    'Movie title', placeholder='write down the title of your favorite movie'
+    'Movie title', placeholder='write down the title of your favorite movie', key="1"
 )
 
 if string:
@@ -10,7 +12,7 @@ if string:
 string = st.text_input(
     'Movie title',
     placeholder='write down the title of your favorite movie',
-    type='password'
+    type='password', key="2"
 )
 
 if string:

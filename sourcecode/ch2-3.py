@@ -1,4 +1,7 @@
-#
+# %%
+import pandas as pd
+import numpy as np
+
 s = pd.Series([0, 0, 1, 1, 0, 1, 1, 1, 1, 0])
 s
 
@@ -19,13 +22,22 @@ s.mul(sc).diff().where(lambda x: x<0)
 s.mul(sc).diff().where(lambda x: x<0).ffill()
 
 #
-s.mul(sc).diff().where(lambda x: x<0).ffill().add(sc, fill_value=0)
+print("책:", s.mul(sc).diff().where(lambda x: x<0).ffill().add(sc, fill_value=0))
 
+# by chatbot
+out = s.groupby((s != s.shift()).cumsum()).cumcount().add(1).where(s.eq(1), 0)
+print("ChatBot : ", out.tolist())
 # 실전 데이터에 적용
-df = pd.read_csv('datasets/APPL_price/APPL_price.csv')
+df = pd.read_csv('../datasets/APPL_price/APPL_price.csv')
 s = df['Close'] > 175
-s.sum()
+print("종가 > 175 : ", s.sum())
+print(s)
 
 # 실전 데이터에 적용
 sc = s.cumsum()
-s.mul(sc).diff().where(lambda x: x<0).ffill().add(sc, fill_value=0).max()
+print("책:", s.mul(sc).diff().where(lambda x: x<0).ffill().add(sc, fill_value=0).max())
+print("chatbot:", s.groupby((s != s.shift()).cumsum()).cumcount().add(1).where(s.eq(1), 0).max())
+# print(out.tolist())
+#ChatBot
+
+# %%

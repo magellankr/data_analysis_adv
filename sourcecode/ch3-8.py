@@ -1,4 +1,12 @@
-df = pd.read_csv('./datasets/ds_salaries/ds_salaries.csv')
+# %%
+import plotly.express as px
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+pio.renderers.default = 'notebook' # 또는 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
+df = pd.read_csv('../datasets/ds_salaries/ds_salaries.csv')
 companies = df.company_location.unique()[0:30]
 df_10companies = df.loc[df['company_location'].isin(companies)]
 
@@ -7,7 +15,7 @@ sns.boxplot(
     x='company_location', y='salary_in_usd',
     data=df_10companies, ax=ax
 )
-
+fig.show()
 # Matplotlib의 x축 라벨 회전
 fig, ax= plt.subplots()
 sns.boxplot(
@@ -15,7 +23,7 @@ sns.boxplot(
     data=df_10companies, ax=ax
 )
 ax.tick_params(axis='x', labelrotation=90)
-
+fig.show()
 # Matplotlib의 x축 라벨 회전과 라벨 글씨 크기 수정
 fig, ax= plt.subplots()
 sns.boxplot(
@@ -24,7 +32,7 @@ sns.boxplot(
 )
 ax.tick_params(axis='x', labelrotation=90)
 ax.tick_params(axis='both', which='major', labelsize=16)
-
+fig.show()
 # Plotly로 그린 boxplot의 x축 라벨 회전 및 글씨 크기 수정
 fig = px.box(
     data_frame=df_10companies, x='company_location', y='salary_in_usd',
@@ -84,6 +92,7 @@ sns.boxplot(
 ax.set_title('company_size box plot', fontsize=16)
 ax.grid(axis='y')
 
+
 # Plotly 그래프의 grid 설정하기
 fig = px.box(
     df, x='company_size', y='salary_in_usd',
@@ -121,3 +130,4 @@ fig = px.scatter(
     facet_row_spacing=0.2, facet_col_spacing=0.1
 )
 fig.show()
+# %%

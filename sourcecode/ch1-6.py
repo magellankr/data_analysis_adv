@@ -22,9 +22,16 @@ df['Review'].value_counts()
 df['Total_Review'].unique()
 
 # Total review 열 일부 값 수정 후 unique 메서드 재실행
-df['Total_Review'] = df['Total_Review'].map(lambda x: str(x).replace('external','').strip())
-df['Total_Review'] = df['Total_Review'].map(lambda x: str(x).replace('review','').strip())
-df['Total_Review'] = df['Total_Review'].map(lambda x: str(x).replace(',',''))
-df['Total_Review'] = df['Total_Review'].astype('float')
+#df['Total_Review'] = df['Total_Review'].map(lambda x: str(x).replace('external','').strip())
+#df['Total_Review'] = df['Total_Review'].map(lambda x: str(x).replace('review','').strip())
+#df['Total_Review'] = df['Total_Review'].map(lambda x: str(x).replace(',',''))
+#df['Total_Review'] = df['Total_Review'].astype('float')
+
+df['Total_Review'] = (
+    df['Total_Review']
+      .astype(str)
+      .str.extract(r"(\d+)")[0]   # 문자열에서 숫자 부분만 추출
+      .astype(float)
+)
 
 df['Total_Review'].describe()

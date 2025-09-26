@@ -1,3 +1,5 @@
+import pandas as pd
+import streamlit as st
 # file uploader
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -60,5 +62,5 @@ if (x_option != None) & (y_option != None):
 # 이미지 표현
 from PIL import Image
 
-img = Image.open('datasets/images/image1.jpg')
+img = Image.open('../datasets/images/image1.jpg')
 st.image(img, width=300, caption='Image from Unsplash')

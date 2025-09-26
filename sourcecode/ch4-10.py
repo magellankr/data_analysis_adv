@@ -1,4 +1,14 @@
-df = pd.read_csv('./datasets/Covid19-India/Covid19-India.csv')
+# %%
+import plotly.express as px
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+import matplotlib as mpl
+
+pio.renderers.default = 'notebook' # 또는 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
+df = pd.read_csv('../datasets/Covid19-India/Covid19-India.csv')
 df['date'] = pd.to_datetime(df['date'])
 df = df.loc[df.region == 'Maharashtra']
 
@@ -17,3 +27,4 @@ fig = px.line(
     df, x='date', y='confirmed', width=500, height=400, log_y=True
 )
 fig.show()
+# %%

@@ -1,8 +1,16 @@
+import pandas as pd
+import streamlit as st
+# file uploader
+import matplotlib.pyplot as plt
+import seaborn as sns
+# 이미지 표현
+from PIL import Image
+import plotly.express as px
 # data query
 def load_dataset(path):
     return pd.read_csv(path)
 
-path = 'datasets/CO2_emissions/CO2_Emissions.csv'
+path = '../datasets/CO2_emissions/CO2_Emissions.csv'
 df = load_dataset(path)
 df.head().T
 

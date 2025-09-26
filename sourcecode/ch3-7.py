@@ -1,3 +1,11 @@
+# %%
+import plotly.express as px
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+pio.renderers.default = 'notebook' # 또는 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
 # matplotlib subplots를 이용한 2x2 subplot 생성
 fig, ax = plt.subplots(2, 2, figsize=(12, 12))
 
@@ -66,3 +74,4 @@ fig = px.box(
     width=700, height=700
 )
 fig.show()
+# %%

@@ -1,7 +1,7 @@
 # title, header, subheader
 import streamlit as st
 import pandas as pd
-from IPython import get_ipython
+# from IPython import get_ipython
 
 st.title('This is title')
 st.header('This is header')
@@ -10,9 +10,9 @@ st.subheader('This is subheader')
 # markdown
 st.markdown(
     '''
-    This is main text.
-    This is how to change the color of text :red[Red,] :blue[Blue,] :green[Green.]
-    This is **Bold** and *Italic* text
+    This is main text.  
+    This is how to change the color of text :red[Red,] :blue[Blue,] :green[Green.]  
+    This is **Bold** and *Italic* text  
     '''
 )
 

@@ -1,4 +1,10 @@
-df = pd.read_csv('datasets/Covid19-US/us_confirmed.csv')
+# %%
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import linregress
+df = pd.read_csv('../datasets/Covid19-US/us_confirmed.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 df.info()
 
@@ -15,3 +21,4 @@ df.index.unique()
 
 # 문자열의 일부만을 이용한 사전식 행 슬라이싱
 df['Ca':'Df']
+# %%

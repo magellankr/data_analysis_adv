@@ -1,3 +1,12 @@
+import pandas as pd
+import streamlit as st
+# file uploader
+import matplotlib.pyplot as plt
+import seaborn as sns
+# 이미지 표현
+from PIL import Image
+import plotly.express as px
+
 i = 0
 
 st.header('Session state example1')

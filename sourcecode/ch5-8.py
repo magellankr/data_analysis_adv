@@ -1,3 +1,5 @@
+import pandas as pd
+import streamlit as st
 # file uploader
 file = st.file_uploader(
     'Choose a file', type='csv', accept_multiple_files=False
@@ -5,3 +7,4 @@ file = st.file_uploader(
 if file is not None:
     df = pd.read_csv(file)
     st.write(df)
+    df.head()

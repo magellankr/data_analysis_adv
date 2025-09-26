@@ -1,4 +1,14 @@
-df = pd.read_csv('./datasets/CO2_emissions/CO2_emissions.csv')
+# %%
+import plotly.express as px
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+import matplotlib as mpl
+
+pio.renderers.default = 'notebook' # 또는 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
+df = pd.read_csv('../datasets/CO2_emissions/CO2_emissions.csv')
 
 fig, ax = plt.subplots()
 sns.scatterplot(
@@ -62,3 +72,4 @@ fig.add_annotation(
     showarrow=True, arrowhead=2
 )
 fig.show()
+# %%

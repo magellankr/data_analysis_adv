@@ -1,4 +1,11 @@
-df = pd.read_csv('datasets/Covid19-US/us_confirmed.csv')
+# %%
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import linregress
+df = pd.read_csv('../datasets/Covid19-US/us_confirmed.csv')
+print(df.head())
 df['Date'] = pd.to_datetime(df['Date'])
 df = df.set_index('Date').sort_values('Date')
 
@@ -8,3 +15,4 @@ df = df[df['Province/State'].isin(states)]
 
 # 6개월의 기간 및 "Province/State" 열의 값으로 그룹화
 df.groupby([pd.Grouper(freq='6m'), 'Province/State'])['Case'].mean()
+# %%

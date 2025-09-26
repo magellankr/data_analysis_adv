@@ -1,4 +1,15 @@
+# %%
+import plotly.express as px
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+import matplotlib as mpl
+
+pio.renderers.default = 'notebook' # 또는 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
 df = sns.load_dataset('mpg')
+
 
 fig, ax = plt.subplots()
 sns.regplot(x='horsepower', y='weight', data=df, ax=ax)
@@ -7,14 +18,20 @@ sns.regplot(x='horsepower', y='weight', data=df, ax=ax)
 from scipy.stats import linregress
 
 s, i, r, p, se = linregress(df['horsepower'], df['weight'])
+print("======================")
 print('y={:.2f}x+{:.2f}, R^2={:.2f}'.format(s, i, r**2))
+print("======================")
 
+print(df)
 # info 메서드
-df.info()
+print(df.info())
 
 # dropna 수행 후 선형회귀식 시각화
 df = df.dropna()
 s, i, r, p, se = linregress(df['horsepower'], df['weight'])
+print("2222222")
+print('y={:.2f}x+{:.2f}, R^2={:.2f}'.format(s, i, r**2))
+print("======================")
 
 fig, ax = plt.subplots()
 sns.regplot(
@@ -28,7 +45,7 @@ fig, ax = plt.subplots()
 sns.regplot(x='horsepower', y='weight', data=df, ax=ax)
 ax.text(
     x=0.05, y=0.9,
-    s='y={:.2f}x+{:.2f}, R^2={:.2f}'.format(s, i, r**2),
+    s='#2 y={:.2f}x+{:.2f}, R^2={:.2f}'.format(s, i, r**2),
     transform=ax.transAxes
 )
 # Plotly trendline을 이용한 회귀식 표현
@@ -51,8 +68,9 @@ fig = px.scatter(
 )
 
 fig.add_annotation(
-    text='y= {:.1f}x + {:.1f}, R^2={:.2f}'.format(results.params[0], results.params[0], results.rsquared),
+    text='#3 y= {:.1f}x + {:.1f}, R^2={:.2f}'.format(results.params[0], results.params[0], results.rsquared),
     x=0.05, y=0.95, xref='x domain', yref='y domain', showarrow=False
 )
 
 fig.show()
+# %%

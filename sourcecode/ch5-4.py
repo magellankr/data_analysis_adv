@@ -1,14 +1,19 @@
+import pandas as pd
+import streamlit as st
 # checkbox
-active = st.checkbox('I agree')
+#active = st.checkbox('I agree')
 
-if active:
-    st.text('Great!')
+#if active:
+#    st.text('Great!')
     
 # checkbox on_change 인자 활용
 def checkbox_write():
-    st.write('Great!')
+    if st.session_state.agree:   # key 이름 그대로 session_state에서 접근
+        st.write("Great!")
+    else:
+        st.write("Unchecked!")
 
-st.checkbox('I agree', on_change=checkbox_write)
+st.checkbox('I agree', key='agree', on_change=checkbox_write)
 
 # toggle
 toggle = st.toggle(

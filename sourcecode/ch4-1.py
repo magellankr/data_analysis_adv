@@ -1,6 +1,12 @@
+# %%
+import plotly.express as px
 import pandas as pd
-import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
+import plotly.io as pio
+import numpy as np
+# pio.renderers.default = 'notebook' 
+# 'notebook', 'plotly_mimetype' 또는 'plotly_mimetype+notebook'
 
 df = pd.read_csv('./datasets/ABNB_stock/ABNB_stock.csv')
 

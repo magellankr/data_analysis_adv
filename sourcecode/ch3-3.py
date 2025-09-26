@@ -1,4 +1,8 @@
-df = pd.read_csv('./datasets/global_internet_users/global_internet_users.csv')
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import plotly.express as px
+df = pd.read_csv('../datasets/global_internet_users/global_internet_users.csv')
 entities = ['China', 'India', 'Finland']
 df = df.loc[df['Entity'].isin(entities)]
 
